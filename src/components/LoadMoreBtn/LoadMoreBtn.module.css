@@ -1,0 +1,16 @@
+.btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #ffffffb9;
+  font-size: 18px;
+}
+.cont {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.btn:focus,
+.btn:hover {
+  background-color: rgb(14, 119, 31);
+}
