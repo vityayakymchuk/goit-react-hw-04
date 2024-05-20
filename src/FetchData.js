@@ -8,7 +8,7 @@ export const makeGallery = async (value, page) => {
         query: value,
         orientation: "landscape",
         page: page,
-        per_page: 3
+        per_page: 20
     };  
     const getImages = await axios.get('', { params: params });
     return getImages.data.results;

@@ -18,16 +18,20 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [imageInfo, setImageInfo] = useState({ alt: "", url: "" });
 
+
   useEffect(() => {
 if (searchValue.trim() === "") {
   return;
 }
     async function fetchImages() {
       try {
+        
         setIsLoading(true);
         setIsError(false);
         const data = await makeGallery(searchValue, page);
+        if(data.length === 0) {setIsError(true)}
         setImages((prevState) => [...prevState, ...data])
+        console.log(data)
       } catch (error) {
          setIsError(true);
       } finally {setIsLoading(false)}
@@ -42,7 +46,8 @@ if (searchValue.trim() === "") {
  };
   
 const handleLoadMore = async () => {
-    setPage(page + 1);
+  setPage(page + 1);
+  
 };
   
   const openModal = (alt, url) => {
